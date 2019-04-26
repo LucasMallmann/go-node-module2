@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Appointment = sequelize.define('Appoitment', {
+  const Appointment = sequelize.define('Appointment', {
     date: DataTypes.DATE
   })
 
