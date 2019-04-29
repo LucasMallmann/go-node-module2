@@ -2,6 +2,7 @@ const express = require('express')
 const routes = express.Router()
 const authMiddleware = require('./app/middlewares/auth')
 const guestMiddleware = require('./app/middlewares/guest')
+const providerMiddleware = require('./app/middlewares/provider')
 
 // Using multer to handle file uploads
 const multerConfig = require('./config/multer')
@@ -13,12 +14,18 @@ const DashboardController = require('./app/controllers/DashboardController')
 const FileController = require('./app/controllers/FileController')
 const AppointmentController = require('./app/controllers/AppointmentController')
 const AvailableController = require('./app/controllers/AvailableController')
+const ProviderController = require('./app/controllers/ProviderController')
 
 // Configure the flash messages on the views
 routes.use((req, res, next) => {
   res.locals.flashSuccess = req.flash('success')
   res.locals.flashError = req.flash('error')
 
+  return next()
+})
+
+routes.get((req, res, next) => {
+  console.log(req.session.user)
   return next()
 })
 
@@ -40,7 +47,10 @@ routes.get('/app/dashboard', DashboardController.index)
 routes.get('/app/appointments/new/:providerId', AppointmentController.create)
 routes.post('/app/appointments/new/:providerId', AppointmentController.store)
 
-// Available
+// Available Schedules
 routes.get('/app/available/:providerId', AvailableController.index)
+
+// Protected route
+routes.get('/app/provider', providerMiddleware, ProviderController.index)
 
 module.exports = routes
