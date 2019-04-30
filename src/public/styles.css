@@ -290,3 +290,62 @@ ul.providers {
 .main-wrapper .content form button:hover {
   background: #634dac;
 }
+
+.provider-appointments {
+  list-style: none;
+}
+
+.provider-appointments a {
+  border-radius: 4px;
+  text-decoration: none;
+  color: #4f4949;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  margin: 8px 0;
+  transition: 0.3s all;
+  width: 100%;
+  display: block;
+}
+
+.provider-appointments a:hover {
+  background: #fafafa;
+}
+
+.provider-appointments a li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.provider-appointments a span {
+  /* font-weight: bold; */
+  font-size: 14px;
+  margin-left: 1rem;
+}
+
+.provider-appointments a span:hover {
+  color: #444;
+}
+
+.appointment-time {
+  display: inline;
+}
+
+.appointment-profile {
+  display: flex;
+  align-items: center;
+}
+
+.appointment-profile img {
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+}
+
+.user-time {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

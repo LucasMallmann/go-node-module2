@@ -2,5 +2,21 @@
 {% block body %}
   <div class="content">
     <strong>Seus agendamentos</strong>
+    <ul class="provider-appointments">
+      {% for appointments in providerAppointments %}
+        <a href="">
+          <li>
+            <div class="appointment-profile">
+              <img src="/files/{{ appointments.user.avatar }}" alt="">
+              <div class="user-time">
+                <span>{{ appointments.user.name }}</span>
+                <span>{{ appointments.day }}</span>
+              </div>
+            </div>
+            <div class="appointment-time">{{ appointments.hour }}</div>
+          </li>
+        </a>
+      {% endfor %}
+    </ul>
   </div>
 {% endblock body %}
